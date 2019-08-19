@@ -32,7 +32,7 @@ export class BreedImagesList extends Component {
 
   formatImages = (images, subBreed) => {
     return images.slice(0, 15).map((image, index) => {
-      const size = Math.floor(Math.random() * 3) + 1;
+      const size = Math.floor(Math.random() * 2) + 1;
       return {
         src: image,
         alt: subBreed + index,

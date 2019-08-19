@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { Container, InputGroup, FormControl, Button } from "react-bootstrap";
 import BreedsList from "../BreedsList/BreedsList";
+import {
+  filterBySubBreed,
+  filterByBreedAndSubBreed
+} from "./utils/filtersHandlers";
 
+/**
+ * This class handles the entire application, it loads all the breeds and then you
+ * can filter with the checkboxes selected.
+ */
 export class FiltrableBreedsList extends Component {
   constructor(props) {
     super(props);
@@ -63,37 +71,14 @@ export class FiltrableBreedsList extends Component {
 
     if (breedChecked) {
       if (subBreedChecked) {
-        breeds = breeds.filter(item => {
-          return (
-            item.name.toLowerCase().startsWith(breedSearch) &&
-            item.subBreeds.filter(subItem => {
-              return subItem.toLowerCase().startsWith(subBreedSearch);
-            })
-          );
-        });
-        breeds = breeds.map(breed => {
-          breed.subBreeds = breed.subBreeds.filter(item => {
-            return item.toLowerCase().startsWith(subBreedSearch);
-          });
-          return breed;
-        });
+        breeds = filterByBreedAndSubBreed(breeds, breedSearch, subBreedSearch);
       } else {
         breeds = breeds.filter(item => {
           return item.name.toLowerCase().startsWith(breedSearch);
         });
       }
     } else if (subBreedChecked) {
-      breeds = breeds.filter(item => {
-        return item.subBreeds.filter(subItem => {
-          return subItem.toLowerCase().startsWith(subBreedSearch);
-        });
-      });
-      breeds = breeds.map(breed => {
-        breed.subBreeds = breed.subBreeds.filter(item => {
-          return item.toLowerCase().startsWith(subBreedSearch);
-        });
-        return breed;
-      });
+      breeds = filterBySubBreed(breeds, subBreedSearch);
     }
 
     return breeds;
