@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import FiltrableBreedsList from "./components/FiltersBar/FiltrableBreedsList";
+import FiltrableBreedsList from "./components/FiltrableBreedsList";
 import { Container } from "react-bootstrap";
 
 function App() {
