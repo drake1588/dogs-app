@@ -1,4 +1,4 @@
-This project consumes on of the best APIs in the world [Dogs API](https://dog.ceo/dog-api/).
+This project consumes one of the best APIs in the world [Dogs API](https://dog.ceo/dog-api/).
 
 You can filter by Breed and SubBreed.
 
