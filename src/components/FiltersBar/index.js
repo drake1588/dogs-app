@@ -1,3 +1,3 @@
-import { FiltersBar } from "./FiltersBar";
+import { FiltrableBreedsList } from "./FiltrableBreedsList";
 
-export default FiltersBar;
+export default FiltrableBreedsList;

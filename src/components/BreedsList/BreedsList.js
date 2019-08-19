@@ -7,38 +7,8 @@ class BreedsList extends Component {
     breeds: []
   };
 
-  componentDidMount() {
-    this.getDogs();
-  }
-
-  parseResponse(res) {
-    return Object.entries(res.message).map(breedEntry => {
-      return {
-        name: breedEntry[0],
-        subBreeds: breedEntry[1].length > 0 ? breedEntry[1] : []
-      };
-    });
-  }
-
-  getDogs() {
-    fetch("https://dog.ceo/api/breeds/list/all")
-      .then(response => response.json())
-      .then(response => {
-        if (response.status === "success") {
-          this.setState({
-            breeds: this.parseResponse(response)
-          });
-        }
-      })
-      .catch(error =>
-        this.setState({
-          error: true
-        })
-      );
-  }
-
   render = () => {
-    const { breeds } = this.state;
+    const { breeds } = this.props;
     return (
       <ListGroup>
         {breeds.map((breed, index) => (

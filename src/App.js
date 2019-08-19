@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
-import BreedsList from "./components/BreedsList/BreedsList";
-import FiltersBar from "./components/FiltersBar/FiltersBar";
+import FiltrableBreedsList from "./components/FiltersBar/FiltrableBreedsList";
 import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <Container>
-      <FiltersBar />
-      <BreedsList />
+      <FiltrableBreedsList />
     </Container>
   );
 }
