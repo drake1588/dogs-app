@@ -20,6 +20,7 @@ export class BreedItem extends Component {
         <ListGroup>
           <ListGroup.Item variant="primary">
             {toCapitalize(name)}
+            <BreedImagesList breed={name} />
           </ListGroup.Item>
           {subBreeds.map((subBreed, index) => {
             return (

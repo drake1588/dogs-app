@@ -30,12 +30,12 @@ export class BreedImagesList extends Component {
       });
   };
 
-  formatImages = (images, subBreed) => {
+  formatImages = (images, name) => {
     return images.slice(0, 15).map((image, index) => {
       const size = Math.floor(Math.random() * 2) + 1;
       return {
         src: image,
-        alt: subBreed + index,
+        alt: name + index,
         height: size,
         width: size
       };
@@ -51,12 +51,14 @@ export class BreedImagesList extends Component {
   };
 
   render() {
-    const { subBreed } = this.props;
+    const { breed } = this.props;
     const { images, showImages } = this.state;
     return (
       <Container fluid>
-        <Button onClick={this.showImages}>Ver imágenes</Button>
-        {showImages && <Gallery photos={this.formatImages(images, subBreed)} />}
+        <Button size="sm" onClick={this.showImages}>
+          Ver imágenes
+        </Button>
+        {showImages && <Gallery photos={this.formatImages(images, breed)} />}
       </Container>
     );
   }
